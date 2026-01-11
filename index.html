@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATM Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="atm">
+    <h1>ATM Simulator</h1>
+
+    <form id="login" onsubmit="event.preventDefault(); login();" aria-live="polite">
+        <input type="password" id="pinInput" name="pin" inputmode="numeric" pattern="[0-9]*" placeholder="Enter PIN" maxlength="4" aria-label="PIN">
+        <button type="submit" class="primary">Login</button>
+        <p id="loginMsg" aria-live="assertive"></p>
+    </form>
+
+    <div id="atmMenu" class="hidden" role="region" aria-label="ATM menu">
+        <div class="buttons" role="navigation" aria-label="ATM actions">
+            <button type="button" onclick="checkBalance()"> Balance</button>
+            <button type="button" onclick="showWithdraw()"> Withdraw</button>
+            <button type="button" onclick="showDeposit()"> Deposit</button>
+            <button type="button" class="danger" onclick="logout()"> Logout</button>
+        </div>
+
+        <div id="actions" class="screen" aria-live="polite"></div>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
